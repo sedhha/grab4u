@@ -1,7 +1,7 @@
 export const PAGE_ROUTES = {
   HOME: 'home',
   ACTIVITY: 'activity',
-  FINANCE: 'finance',
+  TRANSPORT: 'transport',
   MESSAGES: 'messages',
   ACCOUNT: 'account',
 };

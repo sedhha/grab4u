@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineScan } from 'react-icons/ai';
@@ -14,13 +13,13 @@ export default function TopLabel() {
             <h2 className='font-semibold font-popins'>Worth Up to SGD 1,200</h2>
             <h4 className='font-popins'>Sign Up With Just Drive</h4>
           </div>
-          <Image src='/images/tiger-image.png' height={160} width={120} />
+          <img src='/images/tiger-image.png' height={160} width={120} />
         </div>
       </div>
-      <div className='flex w-11/12 border border-red-200 p-1.5 rounded-sm gap-1 bg-white items-center'>
+      <div className='bg-white flex w-11/12 border mx-auto mt-2 p-1.5 rounded-sm gap-1  items-center'>
         <BsSearch />
         <input
-          className='w-full p-1.5 rounded-sm border-none outline-none border-right-2 border-gray-300'
+          className='w-full p-1.5 rounded-sm border-none outline-none border-r-2  border-gray-300'
           type='text'
           placeholder='Search'
         />
