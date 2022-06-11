@@ -3,6 +3,7 @@ import React from 'react';
 import { PAGE_ROUTES } from '../constants/config';
 import Home from './Home/Home';
 import Transport from './Transport';
+import Map from './Map';
 
 export default function Base() {
   const router = useRouter();
@@ -16,6 +17,10 @@ export default function Base() {
 
     case PAGE_ROUTES.TRANSPORT: {
       RenderComponent = <Transport />;
+      break;
+    }
+    case PAGE_ROUTES.MAP: {
+      RenderComponent = <Map />;
       break;
     }
 

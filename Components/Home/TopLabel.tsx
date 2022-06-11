@@ -13,7 +13,12 @@ export default function TopLabel() {
             <h2 className='font-semibold font-popins'>Worth Up to SGD 1,200</h2>
             <h4 className='font-popins'>Sign Up With Just Drive</h4>
           </div>
-          <img src='/images/tiger-image.png' height={160} width={120} />
+          <img
+            src='/images/g4u-icon.png'
+            alt='missing image'
+            height={160}
+            width={120}
+          />
         </div>
       </div>
       <div className='bg-white flex w-11/12 border mx-auto mt-2 p-1.5 rounded-sm gap-1  items-center'>

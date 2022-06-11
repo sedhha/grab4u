@@ -2,21 +2,31 @@ import React from 'react';
 import { BiArrowBack, BiMap } from 'react-icons/bi';
 import { BsMap } from 'react-icons/bs';
 import { AiOutlineDown } from 'react-icons/ai';
+import { useRouter } from 'next/router';
+import { PAGE_ROUTES } from '../../constants/config';
 
 type Props = {
   updateScheduler: (show: boolean) => void;
 };
 export default function TopLabel({ updateScheduler }: Props) {
+  const router = useRouter();
+  const navigateToMapView = () => router.push(PAGE_ROUTES.MAP);
+  const goBack = () => router.back();
   return (
     <React.Fragment>
       <div className='px-2 py-2 bg-[#F8AB05] flex flex-col'>
         <div
           aria-label='Top Navigation Section'
           className='flex flex-row justify-between w-full px-1 py-2'>
-          <BiArrowBack className='mt-2 text-2xl text-white text-bold' />
+          <BiArrowBack
+            className='mt-2 text-2xl text-white text-bold'
+            onClick={goBack}
+          />
           <div className='flex items-center p-2 px-4 bg-white rounded-[2rem]'>
             <BsMap className='text-2xl text-[#0C4D3C] text-bold' />
-            <label className='text-[#0C4D3C]'>Map</label>
+            <label className='text-[#0C4D3C]' onClick={navigateToMapView}>
+              Map
+            </label>
           </div>
         </div>
         <div className='flex flex-row items-center justify-around w-full'>

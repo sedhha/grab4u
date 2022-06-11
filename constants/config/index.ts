@@ -4,4 +4,5 @@ export const PAGE_ROUTES = {
   TRANSPORT: 'transport',
   MESSAGES: 'messages',
   ACCOUNT: 'account',
+  MAP: 'map',
 };
