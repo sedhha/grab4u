@@ -8,9 +8,13 @@ export default function SelectRidePopup({ updateScheduler }: Props) {
   return (
     <React.Fragment>
       <div className='absolute top-0 left-0 w-full h-full bg-black opacity-20' />
+      <img
+        src='/images/map-view-02.jpg'
+        className='absolute left-0 w-auto h-screen -z-10'
+      />
       <div
         aria-label='popup-window'
-        className='absolute left-0 flex flex-col w-full p-2 bg-white rounded-md top-2/4'>
+        className='absolute left-0 flex flex-col w-full p-2 bg-white rounded-md translate-y-3/4'>
         <div className='flex flex-row items-center gap-4 p-2'>
           <ImCross
             className='text-2xl text-gray-300'

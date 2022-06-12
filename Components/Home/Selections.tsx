@@ -32,7 +32,7 @@ export default function Selections() {
   const navigateToRoute = (path?: string) => path && router.push(`/${path}`);
 
   return (
-    <div className='flex flex-col gap-2 p-2'>
+    <div className='flex flex-col justify-between flex-auto h-full gap-2 p-2'>
       <div className='flex items-center justify-between gap-1 p-2 border'>
         {AvailableSelections.map((selection) => {
           const Icon = selection.icon;
@@ -60,7 +60,10 @@ export default function Selections() {
         <div className={'w-1/3 h-full rounded-md'}></div>
         <div className={'w-1/3 h-full rounded-md'}></div>
       </div>
-      <img src={'/images/dummy-screen.jpg'} className='w-full h-auto mt-8' />
+      <img
+        src={'/images/dummy-screen.jpg'}
+        className='flex-auto w-full h-auto mt-8'
+      />
     </div>
   );
 }
