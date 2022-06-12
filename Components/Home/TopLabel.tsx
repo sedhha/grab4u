@@ -8,10 +8,10 @@ export default function TopLabel() {
         <div className='flex flex-row items-center justify-around w-full'>
           <div className='flex flex-col gap-1'>
             <h2 className='font-semibold font-popins'>
-              Recieve Welcome Bundle
+              Need someone to talk to?
             </h2>
-            <h2 className='font-semibold font-popins'>Worth Up to SGD 1,200</h2>
-            <h4 className='font-popins'>Sign Up With Just Drive</h4>
+            <h2 className='font-semibold font-popins'>Grab has you covered.</h2>
+            <h4 className='font-popins'>Try Grab Talk2Me today!</h4>
           </div>
           <img
             src='/images/g4u-icon.png'
