@@ -32,10 +32,6 @@ export default function ({ setBooked, showViewHistory }: Props) {
       const newValue = parseInt(currentValue) + 1;
       localStorage.setItem('number-of-times-booked', newValue.toString());
     }
-    console.log(
-      'Times Booked = ',
-      parseInt(localStorage.getItem('number-of-times-booked') ?? '0')
-    );
   };
   return (
     <React.Fragment>
