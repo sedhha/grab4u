@@ -30,7 +30,6 @@ export default function SelectRidePopup({ updateScheduler }: Props) {
         <div className='flex items-center justify-around gap-2'>
           <div
             aria-label='Green-Button'
-            onClick={updateScheduler}
             className='py-3 rounded-md bg-[#00B14F] w-full flex justify-center cursor-pointer'>
             <label className='font-semibold text-white font-popins text-md'>
               Yes Please
