@@ -48,9 +48,10 @@ const rideTypes = [
 type Props = {
   hideShowHistory: () => void;
   setBooked: (value: BookingOptions) => void;
+  showNearbyFriend: () => void;
 };
 
-const BookView = ({ hideShowHistory, setBooked }: Props) => {
+const BookView = ({ hideShowHistory, setBooked, showNearbyFriend }: Props) => {
   return (
     <div className='relative flex flex-col w-full'>
       <img src='/images/map-view-02.jpg' className='w-full h-auto' />
@@ -92,6 +93,7 @@ const BookView = ({ hideShowHistory, setBooked }: Props) => {
             return (
               <div
                 key={rideType.rideName}
+                onClick={showNearbyFriend}
                 aria-label='Ride-Type-Card'
                 className='relative flex items-center justify-between w-full gap-2'>
                 {rideType.disabled && (

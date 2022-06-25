@@ -6,6 +6,7 @@ import { BookingOptions, BOOKVIEW_OPTIONS } from './book';
 type Props = {
   setBooked: (show: BookingOptions) => void;
   showViewHistory: () => void;
+  showNearbyFriend: () => void;
 };
 
 const rideTypes = [
@@ -24,7 +25,11 @@ const rideTypes = [
   },
 ];
 
-export default function ({ setBooked, showViewHistory }: Props) {
+export default function ({
+  setBooked,
+  showViewHistory,
+  showNearbyFriend,
+}: Props) {
   const updateTimesCabBooked = () => {
     const currentValue = localStorage.getItem('number-of-times-booked');
     if (!currentValue) localStorage.setItem('number-of-times-booked', '1');
@@ -58,6 +63,7 @@ export default function ({ setBooked, showViewHistory }: Props) {
               <div
                 key={rideType.rideName}
                 aria-label='Ride-Type-Card'
+                onClick={showNearbyFriend}
                 className='flex items-center justify-between w-full gap-2'>
                 <Icon className='text-[#31BF6D] text-2xl' />
                 <div

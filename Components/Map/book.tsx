@@ -4,6 +4,7 @@ import Booking from './Booking';
 import BookingConfirmation from './CabBooked';
 import Feedback from './Feedback';
 import FrequentBooks from './FrequentBooks';
+import Nearby from './NearbyFriend';
 
 export const BOOKVIEW_OPTIONS = {
   BOOKING_CONFIRMATION: 'BOOKING_CONFIRMATION',
@@ -19,8 +20,10 @@ const BookView = () => {
   const [showModal, setShowModal] = React.useState<BookingOptions>(
     BOOKVIEW_OPTIONS.BOOKING_VIEWS
   );
+  const [nearByFriend, setNearByFriend] = React.useState(false);
   const updateBookedSettings = (value: BookingOptions) => {
     setShowModal(value);
+    setNearByFriend(false);
   };
   const numberOfBooks = localStorage.getItem('number-of-times-booked');
   const numberOfBooksInt = parseInt(numberOfBooks ?? '0');
@@ -28,11 +31,13 @@ const BookView = () => {
     <ViewHistory
       hideShowHistory={() => setViewHistory(false)}
       setBooked={updateBookedSettings}
+      showNearbyFriend={() => setNearByFriend(true)}
     />
   ) : (
     <Booking
       setBooked={updateBookedSettings}
       showViewHistory={() => setViewHistory(true)}
+      showNearbyFriend={() => setNearByFriend(true)}
     />
   );
   switch (showModal) {
@@ -71,7 +76,19 @@ const BookView = () => {
     default: {
     }
   }
-  return <div className='relative flex flex-col w-full'>{RenderComponent}</div>;
+  return (
+    <div className='relative flex flex-col w-full'>
+      {RenderComponent}
+      {nearByFriend && (
+        <Nearby
+          updateScheduler={() =>
+            updateBookedSettings(BOOKVIEW_OPTIONS.BOOKING_CONFIRMATION)
+          }
+          closePopup={() => setNearByFriend(false)}
+        />
+      )}
+    </div>
+  );
 };
 
 export default BookView;
