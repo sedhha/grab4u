@@ -4,10 +4,42 @@ type Props = {
   updateScheduler: () => void;
   closePopup: () => void;
 };
+
+const randomPersonNames = [
+  'John Doe',
+  'Abhishek Kumar',
+  'Thomas Jefferson',
+  'Shane Lee',
+  'Robert DeNiro',
+  'Nicholas Segal',
+  'John Travolta',
+  'Morgan Daly',
+  'Trevante Rhodes',
+  'Dwayne Perry',
+  'Tracy Morgan',
+  'Eddie Murphy',
+  'Wissel Van De Graaf',
+  'Awkward Palms',
+];
+
+const pickRandomName = () =>
+  randomPersonNames[Math.floor(Math.random() * randomPersonNames.length) | 0];
 export default function SelectRidePopup({
   updateScheduler,
   closePopup,
 }: Props) {
+  React.useEffect(() => {
+    return () => {
+      console.log('Resetting');
+      setAvatar(
+        'https://xsgames.co/randomusers/avatar.php?g=male&time=' +
+          new Date().getTime()
+      );
+    };
+  }, []);
+  const [avatar, setAvatar] = React.useState(
+    'https://xsgames.co/randomusers/avatar.php?g=male'
+  );
   return (
     <React.Fragment>
       <div className='absolute top-0 left-0 w-full h-screen bg-black opacity-20' />
@@ -27,11 +59,11 @@ export default function SelectRidePopup({
         </h1>
         <div className='flex items-center w-full gap-2'>
           <img
-            src='/images/man.jpg'
-            className='h-[2rem] w-[2rem] rounded-full'
+            src={avatar}
+            className='h-[3rem] w-[3rem] rounded-full'
             alt='user-avatar'
           />
-          <h4 className='font-popins text-medium'>John Doe</h4>
+          <h4 className='font-popins text-medium'>{pickRandomName()}</h4>
         </div>
         <h3 className='mx-auto mt-2 text-xs'>
           A Driver you have talked in one of the previous sessions is nearby and
