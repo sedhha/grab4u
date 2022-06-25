@@ -1,9 +1,10 @@
 import React from 'react';
 import { AiFillCar } from 'react-icons/ai';
 import { FaCar, FaCcVisa } from 'react-icons/fa';
+import { BookingOptions, BOOKVIEW_OPTIONS } from './book';
 
 type Props = {
-  setBooked: (show: boolean) => void;
+  setBooked: (show: BookingOptions) => void;
   showViewHistory: () => void;
 };
 
@@ -24,6 +25,18 @@ const rideTypes = [
 ];
 
 export default function ({ setBooked, showViewHistory }: Props) {
+  const updateTimesCabBooked = () => {
+    const currentValue = localStorage.getItem('number-of-times-booked');
+    if (!currentValue) localStorage.setItem('number-of-times-booked', '1');
+    else {
+      const newValue = parseInt(currentValue) + 1;
+      localStorage.setItem('number-of-times-booked', newValue.toString());
+    }
+    console.log(
+      'Times Booked = ',
+      parseInt(localStorage.getItem('number-of-times-booked') ?? '0')
+    );
+  };
   return (
     <React.Fragment>
       <img src='/images/map-view-02.jpg' className='w-full h-auto' />
@@ -87,7 +100,10 @@ export default function ({ setBooked, showViewHistory }: Props) {
         </div>
         <div
           aria-label='Green-Button'
-          onClick={() => setBooked(true)}
+          onClick={() => {
+            updateTimesCabBooked();
+            setBooked(BOOKVIEW_OPTIONS.BOOKING_CONFIRMATION);
+          }}
           className='py-3 rounded-md bg-[#00B14F] w-full flex justify-center cursor-pointer'>
           <label className='font-semibold text-white font-popins text-md'>
             Book JustGrab

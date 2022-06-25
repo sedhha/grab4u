@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillCar, AiOutlineCaretDown } from 'react-icons/ai';
 import { FaCcVisa } from 'react-icons/fa';
+import { BookingOptions, BOOKVIEW_OPTIONS } from './book';
 const rideTypes = [
   {
     icon: AiFillCar,
@@ -46,7 +47,7 @@ const rideTypes = [
 ];
 type Props = {
   hideShowHistory: () => void;
-  setBooked: (value: boolean) => void;
+  setBooked: (value: BookingOptions) => void;
 };
 
 const BookView = ({ hideShowHistory, setBooked }: Props) => {
@@ -143,7 +144,7 @@ const BookView = ({ hideShowHistory, setBooked }: Props) => {
           className='py-3 rounded-md bg-[#00B14F] w-full flex justify-center cursor-pointer'>
           <label
             className='font-semibold text-white font-popins text-md'
-            onClick={() => setBooked(true)}>
+            onClick={() => setBooked(BOOKVIEW_OPTIONS.BOOKING_CONFIRMATION)}>
             Book JustGrab
           </label>
         </div>
