@@ -5,4 +5,5 @@ export const PAGE_ROUTES = {
   MESSAGES: 'messages',
   ACCOUNT: 'account',
   MAP: 'map',
+  HIRE_BY_HOUR: 'hire-by-hour',
 };

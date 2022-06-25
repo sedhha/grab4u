@@ -3,6 +3,7 @@ import React from 'react';
 import { PAGE_ROUTES } from '../constants/config';
 import Home from './Home/Home';
 import Transport from './Transport';
+import HireByHour from './HireByHour';
 import Map from './Map';
 
 export default function Base() {
@@ -22,6 +23,9 @@ export default function Base() {
     case PAGE_ROUTES.MAP: {
       RenderComponent = <Map />;
       break;
+    }
+    case PAGE_ROUTES.HIRE_BY_HOUR: {
+      RenderComponent = <HireByHour />;
     }
 
     default: {
